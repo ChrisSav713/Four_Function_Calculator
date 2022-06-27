@@ -15,17 +15,17 @@ document.getElementById("equals").addEventListener("click", equalsClick);
 document.getElementById("clear").addEventListener("click", clearClick);
 
 function operatorClick() {
-    memory = parseFloat(displayText.innerHTML);
+    memory = parseFloat(displayText.value);
     currentOperator = this.dataset.operator;
     operatorChange = true;
 }
 
 function numberClick() {
     if (operatorChange) {
-        displayText.innerHTML = this.dataset.number;
+        displayText.value = this.dataset.number;
         operatorChange = false;
     } else {
-        displayText.innerHTML += this.dataset.number;
+        displayText.value += this.dataset.number;
     }
 }
 
@@ -33,29 +33,29 @@ function clearClick() {
     memory = 0;
     currentOperator = "";
     operatorChange = true;
-    displayText.innerHTML = 0;
+    displayText.value = 0;
 }
 
 function calculate() {
     switch (currentOperator) {
         case "+":
-            memory = memory + parseFloat(displayText.innerHTML);
-            displayText.innerHTML = memory;
+            memory = memory + parseFloat(displayText.value);
+            displayText.value = memory;
             break;
         case "-":
-            memory = memory - parseFloat(displayText.innerHTML);
-            displayText.innerHTML = memory;
+            memory = memory - parseFloat(displayText.value);
+            displayText.value = memory;
             break;
         case "x":
-            memory = memory * parseFloat(displayText.innerHTML);
-            displayText.innerHTML = memory;
+            memory = memory * parseFloat(displayText.value);
+            displayText.value = memory;
             break;
         case "÷":
-            memory = memory / parseFloat(displayText.innerHTML);
-            displayText.innerHTML = memory;
+            memory = memory / parseFloat(displayText.value);
+            displayText.value = memory;
             break;
     }
-    displayText.innerHTML
+    displayText.value;
 }
 
 function equalsClick() {
